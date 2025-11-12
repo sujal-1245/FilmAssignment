@@ -21,4 +21,7 @@ app.get("/", (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/submissions", submissionRoutes);
 
-module.exports = app;
+// Start server
+app.listen(process.env.PORT, () =>
+  console.log(`🚀 Server running at port ${process.env.PORT}`)
+);
