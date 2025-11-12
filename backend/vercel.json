@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "api/server.js": {
+      "runtime": "nodejs22.x"
+    }
+  },
+  "ignoreCommand": "echo Ignoring build",
+  "buildCommand": "",
+  "outputDirectory": ""
+}
