@@ -5,10 +5,7 @@
       "maxDuration": 20
     }
   },
-  "builds": [
-    { "src": "api/server.js", "use": "@vercel/node" }
-  ],
   "routes": [
-    { "src": "/(.*)", "dest": "api/server.js" }
+    { "src": "/(.*)", "dest": "/api/server.js" }
   ]
 }
