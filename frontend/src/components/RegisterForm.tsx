@@ -20,10 +20,22 @@ import {
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 
+// Remove all drag-related props so Framer Motion doesn't conflict with HTML drag types
+type SafeDivProps = Omit<
+  React.ComponentProps<"div">,
+  | "onDrag"
+  | "onDragStart"
+  | "onDragEnd"
+  | "onDragEnter"
+  | "onDragLeave"
+  | "onDragOver"
+  | "draggable"
+>;
+
 export default function RegisterForm({
   className,
   ...props
-}: React.ComponentProps<"div">) {
+}: SafeDivProps) {
   const API = process.env.NEXT_PUBLIC_API_URL;
   const router = useRouter();
 
@@ -252,7 +264,6 @@ export default function RegisterForm({
                           value={semester}
                           onChange={(e) => {
                             const value = e.target.value;
-                            // Allow only numbers between 1 and 10
                             if (value === "" || (Number(value) >= 1 && Number(value) <= 10)) {
                               setSemester(value);
                             }
@@ -261,7 +272,6 @@ export default function RegisterForm({
                           placeholder="Enter semester (1–10)"
                         />
                       </Field>
-
                     </motion.div>
                   )}
                 </AnimatePresence>
