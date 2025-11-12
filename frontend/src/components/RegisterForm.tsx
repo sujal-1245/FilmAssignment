@@ -20,22 +20,7 @@ import {
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 
-// Remove all drag-related props so Framer Motion doesn't conflict with HTML drag types
-type SafeDivProps = Omit<
-  React.ComponentProps<"div">,
-  | "onDrag"
-  | "onDragStart"
-  | "onDragEnd"
-  | "onDragEnter"
-  | "onDragLeave"
-  | "onDragOver"
-  | "draggable"
->;
-
-export default function RegisterForm({
-  className,
-  ...props
-}: SafeDivProps) {
+export default function RegisterForm({ className }: { className?: string }) {
   const API = process.env.NEXT_PUBLIC_API_URL;
   const router = useRouter();
 
@@ -140,7 +125,6 @@ export default function RegisterForm({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
       className={cn("flex flex-col gap-6", className)}
-      {...props}
     >
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
@@ -151,9 +135,7 @@ export default function RegisterForm({
           <CardHeader>
             <CardTitle className="text-white text-lg font-semibold flex justify-between items-center">
               Create a new account
-              <span className="text-sm text-gray-400">
-                Step {step} of 3
-              </span>
+              <span className="text-sm text-gray-400">Step {step} of 3</span>
             </CardTitle>
           </CardHeader>
 
@@ -206,9 +188,7 @@ export default function RegisterForm({
                       transition={{ duration: 0.45, ease: "easeInOut" }}
                     >
                       <Field>
-                        <FieldLabel className="text-gray-200">
-                          Department
-                        </FieldLabel>
+                        <FieldLabel className="text-gray-200">Department</FieldLabel>
                         <Input
                           className="text-gray-300"
                           value={department}
@@ -219,9 +199,7 @@ export default function RegisterForm({
                       </Field>
 
                       <Field>
-                        <FieldLabel className="text-gray-200 mt-10">
-                          Program
-                        </FieldLabel>
+                        <FieldLabel className="text-gray-200 mt-10">Program</FieldLabel>
                         <Input
                           className="text-gray-300"
                           value={program}
@@ -254,7 +232,9 @@ export default function RegisterForm({
                       </Field>
 
                       <Field>
-                        <FieldLabel className="text-gray-200 mt-10">Semester</FieldLabel>
+                        <FieldLabel className="text-gray-200 mt-10">
+                          Semester
+                        </FieldLabel>
                         <Input
                           type="number"
                           min={1}
@@ -286,7 +266,6 @@ export default function RegisterForm({
                   </motion.div>
                 )}
 
-                {/* Button group */}
                 <div className="flex justify-between mt-6">
                   {step > 1 && (
                     <Button
