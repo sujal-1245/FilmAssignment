@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 interface Tab {
   title: string;
   icon: LucideIcon;
-  id?: string; // added: target section id or special action (like notifications)
+  id: string; // added: target section id or special action (like notifications)
   type?: never;
 }
 
