@@ -1,10 +1,14 @@
 {
   "functions": {
     "api/server.js": {
-      "runtime": "nodejs22.x"
+      "runtime": "nodejs22.x",
+      "maxDuration": 20
     }
   },
-  "ignoreCommand": "echo Ignoring build",
-  "buildCommand": "",
-  "outputDirectory": ""
+  "builds": [
+    { "src": "api/server.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "api/server.js" }
+  ]
 }
