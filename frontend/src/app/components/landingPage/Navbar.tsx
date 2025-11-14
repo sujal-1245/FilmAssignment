@@ -18,6 +18,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/navigation";
 import Dialog from "@mui/material/Dialog";
+import Link from "next/link";
 
 const Navbar = () => {
   const router = useRouter();
@@ -78,30 +79,32 @@ const Navbar = () => {
     >
       <div className="flex justify-between items-center py-4 px-5 md:px-10">
         {/* Logo */}
-        <motion.div
-          className="flex gap-2 items-center"
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-        >
-          <motion.div
-            className="bg-white rounded-full p-1"
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.4, ease: "easeOut", delay: 0.3 }}
-          >
-            <Clapperboard size={24} color="black" />
-          </motion.div>
-          <motion.h1
-            className="text-white font-bold tracking-wide text-lg"
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.35 }}
-          >
-            FILMWALA
-          </motion.h1>
-        </motion.div>
+        <Link href="/" className="inline-block">
+  <motion.div
+    className="flex gap-2 items-center cursor-pointer"
+    initial={{ opacity: 0, x: -30 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+  >
+    <motion.div
+      className="bg-white rounded-full p-1"
+      initial={{ scale: 0.8, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 0.4, ease: "easeOut", delay: 0.3 }}
+    >
+      <Clapperboard size={24} color="black" />
+    </motion.div>
 
+    <motion.h1
+      className="text-white font-bold tracking-wide text-lg"
+      initial={{ opacity: 0, x: -10 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut", delay: 0.35 }}
+    >
+      FILMWALA
+    </motion.h1>
+  </motion.div>
+</Link>
         {/* Desktop Tabs */}
         <div className="hidden md:block">
           <ExpandedTabs
