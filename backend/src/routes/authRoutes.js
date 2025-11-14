@@ -22,7 +22,7 @@ router.get("/me", requireAuth, getMe);
 
 // Admin-only
 router.post("/register-admin", requireAuth, requireAdmin, registerAdmin);
-router.get("/users", requireAuth, requireAdmin, getAllUsers);
+router.get("/users", getAllUsers);
 
 // Self or Admin
 router.put("/users/:id", requireAuth, updateUser);
