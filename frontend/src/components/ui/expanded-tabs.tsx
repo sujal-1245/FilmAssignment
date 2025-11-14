@@ -98,7 +98,7 @@ export function ExpandedTabs({
             initial="initial"
             animate="animate"
             custom={isHovered}
-            whileHover={() => setHovered(index)}
+            onHoverStart={() => setHovered(index)}
             onHoverEnd={() => setHovered(null)}
             onClick={() => handleClick(index, tab)}
             transition={transition}
